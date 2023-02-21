@@ -10,6 +10,8 @@ dependencies:
   get: 4.6.5
   flutter: 
     sdk: flutter
+  flutter_svg: ^2.0.1
+  pinput: ^2.2.30
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -18,4 +20,15 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+
+
+  assets:
+    - assets/google_fonts/
+    - assets/images/
+
+  fonts:
+    - family: poppins
+      fonts:  
+        - asset: assets/google_fonts/Poppins-Medium.ttf
+        - asset: assets/google_fonts/Poppins-Light.ttf
 
