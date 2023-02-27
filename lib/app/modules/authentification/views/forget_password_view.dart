@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../utils/constants/color_constant.dart';
 import '../../onboarding/views/onboarding_view.dart';
 import 'login_view.dart';
 
@@ -20,30 +21,38 @@ class ForgetPasswordView extends GetView {
                 child: ListView(
               shrinkWrap: true,
               children: [
-                const Text(
+                Text(
                   'Mot de passe oublié ?',
                   style: TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold, height: 0),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
-                const Text(
+                Text(
                   'Commençons par  le numéro de téléphone',
-                  style: TextStyle(height: 0),
+                  style: TextStyle(
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,
                 ),
                 const CustomTextFormField(
                   isPassword: false,
-                  hintText: 'numéro de télephone',
+                  hintText: 'Numéro de télephone',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 CustomButton(
-                    title: 'Envoyer',
-                    onTap: () {
-                      Get.to(const OtpVerificationView());
-                    })
+                  title: 'Envoyer',
+                  onTap: () {
+                    Get.to(const OtpVerificationView());
+                  },
+                )
               ],
             )),
           ),

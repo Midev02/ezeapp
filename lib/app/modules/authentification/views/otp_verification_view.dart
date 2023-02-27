@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../../../utils/constants/color_constant.dart';
 import '../../onboarding/views/onboarding_view.dart';
 
 class OtpVerificationView extends GetView {
@@ -21,14 +22,21 @@ class OtpVerificationView extends GetView {
                 child: ListView(
               shrinkWrap: true,
               children: [
-                const Text(
+                Text(
                   'Verification',
                   style: TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold, height: 0),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
-                const Text(
+                Text(
                   'Veuillez renseigner le code reçu par sms',
-                  style: TextStyle(height: 0),
+                  style: TextStyle(
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,

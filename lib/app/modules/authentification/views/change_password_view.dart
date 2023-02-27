@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../utils/constants/color_constant.dart';
 import '../../home/views/home_view.dart';
 import '../../onboarding/views/onboarding_view.dart';
 import 'login_view.dart';
@@ -20,14 +21,21 @@ class ChangePasswordView extends GetView {
                 child: ListView(
               shrinkWrap: true,
               children: [
-                const Text(
+                Text(
                   'Securité',
                   style: TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold, height: 0),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
-                const Text(
+                Text(
                   'Veuillez renseignez votre le  nouveau mot de passe',
-                  style: TextStyle(height: 0),
+                  style: TextStyle(
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,

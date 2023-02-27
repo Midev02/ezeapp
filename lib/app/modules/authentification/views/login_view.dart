@@ -1,6 +1,7 @@
 import 'package:ezeapp/app/modules/authentification/views/forget_password_view.dart';
 import 'package:ezeapp/app/modules/home/views/home_view.dart';
 import 'package:ezeapp/app/modules/onboarding/views/onboarding_view.dart';
+import 'package:ezeapp/utils/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -20,21 +21,28 @@ class LoginView extends GetView {
                 child: ListView(
               shrinkWrap: true,
               children: [
-                const Text(
+                Text(
                   'Connexion',
                   style: TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold, height: 0),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
-                const Text(
+                Text(
                   'Veuillez vous identifiez à votre espace',
-                  style: TextStyle(height: 0),
+                  style: TextStyle(
+                    height: 0,
+                    color: ConstantColors.greyele,
+                  ),
                 ),
                 const SizedBox(
                   height: 50,
                 ),
                 const CustomTextFormField(
                   isPassword: false,
-                  hintText: 'numéro',
+                  hintText: 'numéro de téléphone',
                 ),
                 const SizedBox(
                   height: 10,
@@ -53,7 +61,7 @@ class LoginView extends GetView {
                       Get.to(const ForgetPasswordView());
                     },
                     child: const Text(
-                      'Mot de passe oublié',
+                      'Mot de passe oublié ?',
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),

@@ -14,75 +14,72 @@ class OnboardingView extends GetView<OnboardingController> {
   const OnboardingView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: Get.height,
-            decoration: BoxDecoration(
-              color: ConstantColors.blueprimary,
-              gradient: RadialGradient(
-                colors: [
-                  Colors.grey,
-                  ConstantColors.blueprimary,
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 60,
-            child: Container(
-              width: Get.width,
-              child: Center(child: TitleLogoEle(isOutline: true)),
-            ),
-          ),
-          Positioned(
-            bottom: 40,
-            child: Container(
-              width: Get.width,
-              child: Column(
-                children: [
-                  Transform.rotate(
-                    angle: -math.pi / 50,
-                    child: Column(
-                      children: const [
-                        Text(
-                          'Monsieur',
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        ),
-                        Text(
-                          'ASSAHORE KONAN',
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          'JACQUES',
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
+    return Container(
+      color: ConstantColors.blueprimary,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: ConstantColors.blueprimary,
+          body: Stack(
+            children: [
+              Positioned.fill(
+                  child: Container(
+                height: Get.height,
+                decoration: BoxDecoration(
+                  color: ConstantColors.blueprimary,
+                  gradient: RadialGradient(
+                    colors: [
+                      Colors.grey,
+                      ConstantColors.blueprimary,
+                    ],
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  CustomButton(
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 10),
+                    const TitleLogoEle(
                       isOutline: true,
-                      title: "Acceder a l'application",
-                      onTap: () {
-                        Get.to(LoginView());
-                      })
+                      height: 2,
+                      fontSize: 21,
+                    ),
+                    Expanded(
+                      child: Image.asset(
+                        'assets/images/ELEMISTER.png',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    height: 100,
+                    child: Image.asset('assets/images/NAME.png'),
+                  ),
+                  const SizedBox(height: 40),
+                  Center(
+                    child: CustomButton(
+                        width: 300,
+                        isOutline: true,
+                        title: "Acceder a l'application",
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return LoginView();
+                          }));
+                          // Get.to(const LoginView());
+                        }),
+                  ),
+                  const SizedBox(height: 50),
                 ],
-              ),
-            ),
+              )
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -91,14 +88,19 @@ class OnboardingView extends GetView<OnboardingController> {
 class CustomButton extends StatelessWidget {
   final String title;
   final bool isOutline;
+  final double? width;
+
   final Color color;
+  final Color colorOutline;
 
   final VoidCallback onTap;
   const CustomButton({
     super.key,
+    this.width,
     required this.title,
     required this.onTap,
     this.color = const Color(0Xff2E61E5),
+    this.colorOutline = Colors.white,
     this.isOutline = false,
   });
 
@@ -110,15 +112,13 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         decoration: BoxDecoration(
             color: isOutline ? null : color,
-            border: isOutline ? Border.all(color: Colors.white) : null,
+            border: isOutline ? Border.all(color: colorOutline) : null,
             borderRadius: BorderRadius.circular(15)),
-        width: 300,
+        width: width ?? double.infinity,
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
-            ),
+            style: TextStyle(color: colorOutline, fontSize: 16),
           ),
         ),
       ),

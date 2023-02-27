@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 class ThemePerso {
   static final lightTheme = ThemeData.light().copyWith(
+    scaffoldBackgroundColor: ConstantColors.backgroundColor,
     listTileTheme: ListTileThemeData(
         textColor: Colors.black,
         style: ListTileStyle.drawer,
